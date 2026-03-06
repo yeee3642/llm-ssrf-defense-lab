@@ -1,0 +1,649 @@
+{
+  "baseline": {
+    "engine": "traditional-baseline",
+    "unsafe_precision": 1.0,
+    "unsafe_recall": 0.9,
+    "unsafe_f1": 0.9474,
+    "action_accuracy": 0.8571,
+    "block_recall": 0.875,
+    "repair_coverage": 0.7583,
+    "adaptability_score": 0.8889,
+    "scenario_results": [
+      {
+        "scenario_id": "flask-avatar-localhost",
+        "framework": "Flask",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.99,
+        "indicators": [
+          "internal_host",
+          "internal_dns_resolution",
+          "redirects_enabled",
+          "no_host_allowlist"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "egress_acl",
+          "host_allowlist",
+          "disable_redirects"
+        ],
+        "analysis": "Rule-based policy blocks flask-avatar-localhost because the destination matches direct SSRF deny rules: internal_host, internal_dns_resolution, redirects_enabled, no_host_allowlist."
+      },
+      {
+        "scenario_id": "express-webhook-metadata",
+        "framework": "Express",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.99,
+        "indicators": [
+          "internal_host",
+          "metadata_host",
+          "internal_dns_resolution",
+          "redirects_enabled",
+          "no_host_allowlist"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "egress_acl",
+          "host_allowlist",
+          "disable_redirects"
+        ],
+        "analysis": "Rule-based policy blocks express-webhook-metadata because the destination matches direct SSRF deny rules: internal_host, metadata_host, internal_dns_resolution, redirects_enabled, no_host_allowlist."
+      },
+      {
+        "scenario_id": "django-import-file-scheme",
+        "framework": "Django",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.99,
+        "indicators": [
+          "blocked_scheme",
+          "internal_host",
+          "no_host_allowlist"
+        ],
+        "repair_tokens": [
+          "scheme_allowlist",
+          "private_range_block",
+          "egress_acl",
+          "host_allowlist"
+        ],
+        "analysis": "Rule-based policy blocks django-import-file-scheme because the destination matches direct SSRF deny rules: blocked_scheme, internal_host, no_host_allowlist."
+      },
+      {
+        "scenario_id": "fastapi-cdn-image-allow",
+        "framework": "FastAPI",
+        "expected_action": "allow",
+        "predicted_action": "allow",
+        "correct": true,
+        "score": 0.0,
+        "confidence": 0.55,
+        "indicators": [
+          "allowlisted_destination"
+        ],
+        "repair_tokens": [],
+        "analysis": "Rule-based policy allows fastapi-cdn-image-allow because the target stays on a known-safe external path."
+      },
+      {
+        "scenario_id": "django-partner-feed-allow",
+        "framework": "Django",
+        "expected_action": "allow",
+        "predicted_action": "allow",
+        "correct": true,
+        "score": 0.0,
+        "confidence": 0.55,
+        "indicators": [
+          "allowlisted_destination"
+        ],
+        "repair_tokens": [],
+        "analysis": "Rule-based policy allows django-partner-feed-allow because the target stays on a known-safe external path."
+      },
+      {
+        "scenario_id": "express-preview-localhost",
+        "framework": "Express",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.99,
+        "indicators": [
+          "internal_host",
+          "internal_dns_resolution",
+          "redirects_enabled",
+          "no_host_allowlist"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "egress_acl",
+          "host_allowlist",
+          "disable_redirects"
+        ],
+        "analysis": "Rule-based policy blocks express-preview-localhost because the destination matches direct SSRF deny rules: internal_host, internal_dns_resolution, redirects_enabled, no_host_allowlist."
+      },
+      {
+        "scenario_id": "fastapi-tenant-crawler-internal-dns",
+        "framework": "FastAPI",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.99,
+        "indicators": [
+          "internal_host",
+          "internal_dns_resolution",
+          "no_host_allowlist"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "egress_acl",
+          "host_allowlist"
+        ],
+        "analysis": "Rule-based policy blocks fastapi-tenant-crawler-internal-dns because the destination matches direct SSRF deny rules: internal_host, internal_dns_resolution, no_host_allowlist."
+      },
+      {
+        "scenario_id": "spring-redis-gopher-block",
+        "framework": "Spring Boot",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.99,
+        "indicators": [
+          "blocked_scheme",
+          "internal_host",
+          "suspicious_port",
+          "internal_dns_resolution",
+          "no_host_allowlist"
+        ],
+        "repair_tokens": [
+          "scheme_allowlist",
+          "private_range_block",
+          "egress_acl",
+          "host_allowlist"
+        ],
+        "analysis": "Rule-based policy blocks spring-redis-gopher-block because the destination matches direct SSRF deny rules: blocked_scheme, internal_host, suspicious_port, internal_dns_resolution, no_host_allowlist."
+      },
+      {
+        "scenario_id": "flask-screenshot-review",
+        "framework": "Flask",
+        "expected_action": "review",
+        "predicted_action": "review",
+        "correct": true,
+        "score": 0.4,
+        "confidence": 0.75,
+        "indicators": [
+          "redirects_enabled",
+          "no_host_allowlist"
+        ],
+        "repair_tokens": [
+          "host_allowlist",
+          "disable_redirects"
+        ],
+        "analysis": "Rule-based policy sends flask-screenshot-review to manual review because the fetch path is user-driven and lacks a strict host policy."
+      },
+      {
+        "scenario_id": "express-callback-review",
+        "framework": "Express",
+        "expected_action": "review",
+        "predicted_action": "allow",
+        "correct": false,
+        "score": 0.25,
+        "confidence": 0.675,
+        "indicators": [
+          "no_host_allowlist"
+        ],
+        "repair_tokens": [
+          "host_allowlist"
+        ],
+        "analysis": "Rule-based policy allows express-callback-review because the target stays on a known-safe external path."
+      },
+      {
+        "scenario_id": "fastapi-s3-presigned-allow",
+        "framework": "FastAPI",
+        "expected_action": "allow",
+        "predicted_action": "allow",
+        "correct": true,
+        "score": 0.0,
+        "confidence": 0.55,
+        "indicators": [
+          "allowlisted_destination"
+        ],
+        "repair_tokens": [],
+        "analysis": "Rule-based policy allows fastapi-s3-presigned-allow because the target stays on a known-safe external path."
+      },
+      {
+        "scenario_id": "nextjs-og-image-allow",
+        "framework": "Next.js API Route",
+        "expected_action": "allow",
+        "predicted_action": "allow",
+        "correct": true,
+        "score": 0.0,
+        "confidence": 0.55,
+        "indicators": [
+          "allowlisted_destination"
+        ],
+        "repair_tokens": [],
+        "analysis": "Rule-based policy allows nextjs-og-image-allow because the target stays on a known-safe external path."
+      },
+      {
+        "scenario_id": "django-invoice-internal-ip",
+        "framework": "Django",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.99,
+        "indicators": [
+          "internal_host",
+          "internal_dns_resolution",
+          "no_host_allowlist"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "egress_acl",
+          "host_allowlist"
+        ],
+        "analysis": "Rule-based policy blocks django-invoice-internal-ip because the destination matches direct SSRF deny rules: internal_host, internal_dns_resolution, no_host_allowlist."
+      },
+      {
+        "scenario_id": "flask-redirect-broker-block",
+        "framework": "Flask",
+        "expected_action": "block",
+        "predicted_action": "review",
+        "correct": false,
+        "score": 0.1,
+        "confidence": 0.6,
+        "indicators": [
+          "redirects_enabled",
+          "allowlisted_destination"
+        ],
+        "repair_tokens": [
+          "disable_redirects"
+        ],
+        "analysis": "Rule-based policy sends flask-redirect-broker-block to manual review because the fetch path is user-driven and lacks a strict host policy."
+      }
+    ],
+    "per_framework_accuracy": {
+      "Flask": 0.6667,
+      "Express": 0.6667,
+      "Django": 1.0,
+      "FastAPI": 1.0,
+      "Spring Boot": 1.0,
+      "Next.js API Route": 1.0
+    }
+  },
+  "llm_agent": {
+    "engine": "llm-defense-agent",
+    "unsafe_precision": 1.0,
+    "unsafe_recall": 1.0,
+    "unsafe_f1": 1.0,
+    "action_accuracy": 1.0,
+    "block_recall": 1.0,
+    "repair_coverage": 0.975,
+    "adaptability_score": 1.0,
+    "scenario_results": [
+      {
+        "scenario_id": "flask-avatar-localhost",
+        "framework": "Flask",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.995,
+        "indicators": [
+          "internal_host",
+          "internal_dns_resolution",
+          "redirects_enabled",
+          "no_host_allowlist",
+          "server_side_fetch_surface",
+          "missing_allowlist_control",
+          "redirect_following_enabled",
+          "raw_outbound_fetch"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "dns_rebind_guard",
+          "egress_acl",
+          "host_allowlist",
+          "disable_redirects"
+        ],
+        "analysis": "The agent blocks flask-avatar-localhost after correlating URL, DNS, and framework context signals: internal_host, internal_dns_resolution, redirects_enabled, no_host_allowlist, server_side_fetch_surface, missing_allowlist_control, redirect_following_enabled, raw_outbound_fetch."
+      },
+      {
+        "scenario_id": "express-webhook-metadata",
+        "framework": "Express",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.995,
+        "indicators": [
+          "internal_host",
+          "metadata_host",
+          "internal_dns_resolution",
+          "redirects_enabled",
+          "no_host_allowlist",
+          "server_side_fetch_surface",
+          "missing_allowlist_control",
+          "redirect_following_enabled",
+          "raw_outbound_fetch",
+          "high_impact_context"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "dns_rebind_guard",
+          "egress_acl",
+          "host_allowlist",
+          "disable_redirects",
+          "timeout_body_cap"
+        ],
+        "analysis": "The agent blocks express-webhook-metadata after correlating URL, DNS, and framework context signals: internal_host, metadata_host, internal_dns_resolution, redirects_enabled, no_host_allowlist, server_side_fetch_surface, missing_allowlist_control, redirect_following_enabled, raw_outbound_fetch, high_impact_context."
+      },
+      {
+        "scenario_id": "django-import-file-scheme",
+        "framework": "Django",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.995,
+        "indicators": [
+          "blocked_scheme",
+          "internal_host",
+          "no_host_allowlist",
+          "server_side_fetch_surface",
+          "missing_allowlist_control",
+          "raw_outbound_fetch"
+        ],
+        "repair_tokens": [
+          "scheme_allowlist",
+          "private_range_block",
+          "dns_rebind_guard",
+          "egress_acl",
+          "host_allowlist"
+        ],
+        "analysis": "The agent blocks django-import-file-scheme after correlating URL, DNS, and framework context signals: blocked_scheme, internal_host, no_host_allowlist, server_side_fetch_surface, missing_allowlist_control, raw_outbound_fetch."
+      },
+      {
+        "scenario_id": "fastapi-cdn-image-allow",
+        "framework": "FastAPI",
+        "expected_action": "allow",
+        "predicted_action": "allow",
+        "correct": true,
+        "score": 0.0,
+        "confidence": 0.62,
+        "indicators": [
+          "allowlisted_destination",
+          "server_side_fetch_surface",
+          "contextual_safeguards_present",
+          "framework_allowlist_match"
+        ],
+        "repair_tokens": [
+          "host_allowlist"
+        ],
+        "analysis": "The agent allows fastapi-cdn-image-allow because the request stays on an approved external destination and the surrounding deployment context reduces SSRF exposure."
+      },
+      {
+        "scenario_id": "django-partner-feed-allow",
+        "framework": "Django",
+        "expected_action": "allow",
+        "predicted_action": "allow",
+        "correct": true,
+        "score": 0.0,
+        "confidence": 0.62,
+        "indicators": [
+          "allowlisted_destination",
+          "contextual_safeguards_present",
+          "framework_allowlist_match"
+        ],
+        "repair_tokens": [],
+        "analysis": "The agent allows django-partner-feed-allow because the request stays on an approved external destination and the surrounding deployment context reduces SSRF exposure."
+      },
+      {
+        "scenario_id": "express-preview-localhost",
+        "framework": "Express",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.995,
+        "indicators": [
+          "internal_host",
+          "internal_dns_resolution",
+          "redirects_enabled",
+          "no_host_allowlist",
+          "server_side_fetch_surface",
+          "missing_allowlist_control",
+          "redirect_following_enabled",
+          "raw_outbound_fetch"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "dns_rebind_guard",
+          "egress_acl",
+          "host_allowlist",
+          "disable_redirects"
+        ],
+        "analysis": "The agent blocks express-preview-localhost after correlating URL, DNS, and framework context signals: internal_host, internal_dns_resolution, redirects_enabled, no_host_allowlist, server_side_fetch_surface, missing_allowlist_control, redirect_following_enabled, raw_outbound_fetch."
+      },
+      {
+        "scenario_id": "fastapi-tenant-crawler-internal-dns",
+        "framework": "FastAPI",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.995,
+        "indicators": [
+          "internal_host",
+          "internal_dns_resolution",
+          "no_host_allowlist",
+          "server_side_fetch_surface",
+          "missing_allowlist_control",
+          "raw_outbound_fetch",
+          "high_impact_context"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "dns_rebind_guard",
+          "egress_acl",
+          "host_allowlist",
+          "timeout_body_cap"
+        ],
+        "analysis": "The agent blocks fastapi-tenant-crawler-internal-dns after correlating URL, DNS, and framework context signals: internal_host, internal_dns_resolution, no_host_allowlist, server_side_fetch_surface, missing_allowlist_control, raw_outbound_fetch, high_impact_context."
+      },
+      {
+        "scenario_id": "spring-redis-gopher-block",
+        "framework": "Spring Boot",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.995,
+        "indicators": [
+          "blocked_scheme",
+          "internal_host",
+          "suspicious_port",
+          "internal_dns_resolution",
+          "no_host_allowlist",
+          "missing_allowlist_control",
+          "raw_outbound_fetch"
+        ],
+        "repair_tokens": [
+          "scheme_allowlist",
+          "private_range_block",
+          "dns_rebind_guard",
+          "egress_acl",
+          "host_allowlist"
+        ],
+        "analysis": "The agent blocks spring-redis-gopher-block after correlating URL, DNS, and framework context signals: blocked_scheme, internal_host, suspicious_port, internal_dns_resolution, no_host_allowlist, missing_allowlist_control, raw_outbound_fetch."
+      },
+      {
+        "scenario_id": "flask-screenshot-review",
+        "framework": "Flask",
+        "expected_action": "review",
+        "predicted_action": "review",
+        "correct": true,
+        "score": 0.74,
+        "confidence": 0.9564,
+        "indicators": [
+          "redirects_enabled",
+          "no_host_allowlist",
+          "missing_allowlist_control",
+          "redirect_following_enabled",
+          "raw_outbound_fetch"
+        ],
+        "repair_tokens": [
+          "host_allowlist",
+          "disable_redirects",
+          "dns_rebind_guard"
+        ],
+        "analysis": "The agent routes flask-screenshot-review to review because the feature performs server-side fetches and has no host allowlist, which raises adaptive SSRF risk."
+      },
+      {
+        "scenario_id": "express-callback-review",
+        "framework": "Express",
+        "expected_action": "review",
+        "predicted_action": "review",
+        "correct": true,
+        "score": 0.69,
+        "confidence": 0.9336,
+        "indicators": [
+          "no_host_allowlist",
+          "server_side_fetch_surface",
+          "missing_allowlist_control",
+          "raw_outbound_fetch",
+          "high_impact_context"
+        ],
+        "repair_tokens": [
+          "host_allowlist",
+          "dns_rebind_guard",
+          "timeout_body_cap"
+        ],
+        "analysis": "The agent routes express-callback-review to review because the feature performs server-side fetches and has no host allowlist, which raises adaptive SSRF risk."
+      },
+      {
+        "scenario_id": "fastapi-s3-presigned-allow",
+        "framework": "FastAPI",
+        "expected_action": "allow",
+        "predicted_action": "allow",
+        "correct": true,
+        "score": 0.0,
+        "confidence": 0.62,
+        "indicators": [
+          "allowlisted_destination",
+          "contextual_safeguards_present",
+          "framework_allowlist_match"
+        ],
+        "repair_tokens": [],
+        "analysis": "The agent allows fastapi-s3-presigned-allow because the request stays on an approved external destination and the surrounding deployment context reduces SSRF exposure."
+      },
+      {
+        "scenario_id": "nextjs-og-image-allow",
+        "framework": "Next.js API Route",
+        "expected_action": "allow",
+        "predicted_action": "allow",
+        "correct": true,
+        "score": 0.0,
+        "confidence": 0.62,
+        "indicators": [
+          "allowlisted_destination",
+          "server_side_fetch_surface",
+          "contextual_safeguards_present",
+          "framework_allowlist_match"
+        ],
+        "repair_tokens": [
+          "host_allowlist"
+        ],
+        "analysis": "The agent allows nextjs-og-image-allow because the request stays on an approved external destination and the surrounding deployment context reduces SSRF exposure."
+      },
+      {
+        "scenario_id": "django-invoice-internal-ip",
+        "framework": "Django",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 1.0,
+        "confidence": 0.995,
+        "indicators": [
+          "internal_host",
+          "internal_dns_resolution",
+          "no_host_allowlist",
+          "server_side_fetch_surface",
+          "missing_allowlist_control",
+          "raw_outbound_fetch"
+        ],
+        "repair_tokens": [
+          "private_range_block",
+          "dns_rebind_guard",
+          "egress_acl",
+          "host_allowlist"
+        ],
+        "analysis": "The agent blocks django-invoice-internal-ip after correlating URL, DNS, and framework context signals: internal_host, internal_dns_resolution, no_host_allowlist, server_side_fetch_surface, missing_allowlist_control, raw_outbound_fetch."
+      },
+      {
+        "scenario_id": "flask-redirect-broker-block",
+        "framework": "Flask",
+        "expected_action": "block",
+        "predicted_action": "block",
+        "correct": true,
+        "score": 0.49,
+        "confidence": 0.8427,
+        "indicators": [
+          "redirects_enabled",
+          "allowlisted_destination",
+          "server_side_fetch_surface",
+          "redirect_following_enabled",
+          "redirect_chain_points_internal",
+          "contextual_safeguards_present",
+          "framework_allowlist_match"
+        ],
+        "repair_tokens": [
+          "host_allowlist",
+          "disable_redirects",
+          "redirect_validation",
+          "dns_rebind_guard"
+        ],
+        "analysis": "The agent blocks flask-redirect-broker-block because the outwardly safe URL can redirect into an internal target, so redirect validation is mandatory."
+      }
+    ],
+    "per_framework_accuracy": {
+      "Flask": 1.0,
+      "Express": 1.0,
+      "Django": 1.0,
+      "FastAPI": 1.0,
+      "Spring Boot": 1.0,
+      "Next.js API Route": 1.0
+    }
+  },
+  "improvements": {
+    "unsafe_f1_delta": 0.0526,
+    "action_accuracy_delta": 0.1429,
+    "block_recall_delta": 0.125,
+    "repair_coverage_delta": 0.2167,
+    "adaptability_delta": 0.1111
+  },
+  "scenario_deltas": [
+    {
+      "scenario_id": "express-callback-review",
+      "expected_action": "review",
+      "baseline_action": "allow",
+      "llm_action": "review",
+      "baseline_correct": false,
+      "llm_correct": true
+    },
+    {
+      "scenario_id": "flask-redirect-broker-block",
+      "expected_action": "block",
+      "baseline_action": "review",
+      "llm_action": "block",
+      "baseline_correct": false,
+      "llm_correct": true
+    }
+  ]
+}

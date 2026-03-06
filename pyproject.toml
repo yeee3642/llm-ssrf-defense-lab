@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-ssrf-defense-lab"
+version = "0.1.0"
+description = "Synthetic training and evaluation harness for LLM-driven SSRF defense agents"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "OpenCode" }
+]
+license = { text = "MIT" }
+keywords = ["ssrf", "llm", "security", "benchmark", "defense"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Security",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
