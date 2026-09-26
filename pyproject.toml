@@ -5,11 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "llm-ssrf-defense-lab"
 version = "0.1.0"
-description = "Synthetic training and evaluation harness for LLM-driven SSRF defense agents"
+description = "Evaluation harness for SSRF defense: deterministic context-aware defender scored against a traditional rule-based baseline"
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [
-  { name = "OpenCode" }
+  { name = "Chen Po-Cheng" }
 ]
 license = { text = "MIT" }
 keywords = ["ssrf", "llm", "security", "benchmark", "defense"]
